@@ -19,9 +19,10 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 
         System.out.println("Starting Bracket Checker application");
-
-        BracketChecker checker = new BracketChecker();
-        Scanner in = new Scanner(new File("brackets01.txt"));
+        char[] opening = {'{','(','['};
+        char[] closing = {'}',')',']'};
+        BracketChecker checker = new BracketChecker(opening, closing);
+        Scanner in = new Scanner(new File("brackets02.txt"));
         
         ArrayDeque<String> queue = new ArrayDeque();
         String line;

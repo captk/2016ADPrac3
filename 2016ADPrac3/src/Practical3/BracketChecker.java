@@ -14,6 +14,7 @@ import java.util.Stack;
 public class BracketChecker {
 
     private Stack<Character> brackStack = new Stack();
+    private int position;
 
     boolean check(String text) {
 
@@ -22,6 +23,7 @@ public class BracketChecker {
                 this.brackStack.push('{');
             } else if (text.charAt(i) == '}') {
                 if (brackStack.empty()) {
+                    this.position = i;
                     return false;
                 } else {
                     brackStack.pop();
@@ -32,7 +34,12 @@ public class BracketChecker {
         if (brackStack.empty()) {
             return true;
         } else {
+            this.position = text.length() -1;
             return false;
         }
+    }
+    
+    int getPosition(){
+        return this.position;
     }
 }

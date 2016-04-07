@@ -5,6 +5,8 @@
  */
 package Practical3;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
@@ -13,20 +15,26 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         System.out.println("Starting Bracket Checker application");
 
         BracketChecker checker = new BracketChecker();
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(new File("brackets01.txt"));
+        String line;
+        
+        //I really don't like this
+        line = in.nextLine();
+        while (!line.equals("")) {
 
-        while (true) {
-            if (checker.check(in.nextLine())) {
+            System.out.println(line);
+            if (checker.check(line)) {
                 System.out.println("Syntax Correct");
             } else {
                 System.out.println("Syntax Error");
             }
-
+            line = in.nextLine();
+            
         }
         System.out.println("Exiting Checker");
     }

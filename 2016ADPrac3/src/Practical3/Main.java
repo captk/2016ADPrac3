@@ -12,20 +12,22 @@ import java.util.Scanner;
  * @author k
  */
 public class Main {
-    
-    public static void main(String[] args){
-        
+
+    public static void main(String[] args) {
+
         System.out.println("Starting Bracket Checker application");
-        
+
         BracketChecker checker = new BracketChecker();
         Scanner in = new Scanner(System.in);
-        
-        if(checker.check(in.nextLine())){
-            System.out.println("Syntax Correct");
+
+        while (true) {
+            if (checker.check(in.nextLine())) {
+                System.out.println("Syntax Correct");
+            } else {
+                System.out.println("Syntax Error");
+            }
+
         }
-        else{
-            System.out.println("Syntax Error");
-        }
-        
+        System.out.println("Exiting Checker");
     }
 }

@@ -12,10 +12,27 @@ import java.util.Stack;
  * @author k
  */
 public class BracketChecker {
-    
+
     private Stack<Character> brackStack = new Stack();
-    
+
     boolean check(String text) {
-        return false;
+
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == '{') {
+                this.brackStack.push('{');
+            } else if (text.charAt(i) == '}') {
+                if (brackStack.empty()) {
+                    return false;
+                } else {
+                    brackStack.pop();
+                }
+            }
+        }
+
+        if (brackStack.empty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

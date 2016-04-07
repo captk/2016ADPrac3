@@ -5,10 +5,17 @@
  */
 package Practical3;
 
+import java.util.Stack;
+
 /**
  *
  * @author k
  */
 public class BracketChecker {
     
+    private Stack<Character> brackStack = new Stack();
+    
+    boolean check(String text) {
+        return false;
+    }
 }
